@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: javaservice
+#  cloud:
+#    inetutils:
+#      ignoredInterfaces:
+#        - en.*
+eureka:
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  client:
+    enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      #defaultZone: http://localhost:8080/eureka/eureka/
+      defaultZone: http://satdevv739.athenahealth.com:38080/eureka/eureka/
+
+server:
+  port: 8761
